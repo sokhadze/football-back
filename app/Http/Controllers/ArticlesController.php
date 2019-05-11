@@ -9,7 +9,7 @@ class ArticlesController extends Controller
 {
     public function index()
     {
-        $data = Articles::all();
+        $data = Articles::paginate(15);
         return response()->json($data);
     }
 
