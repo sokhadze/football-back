@@ -9,10 +9,11 @@ class ArticlesController extends Controller
 {
     public function index()
     {
-        $data = Articles::paginate(10);
+//        $data = Articles::paginate(10)->orderBy('id', 'desc');
+        $data = Articles::orderBy('id', 'desc')->paginate(10);
 
 
-        return response()->json($data->orderBy('data_ora', 'desc'));
+        return response()->json($data);
     }
 
     public function show($id)
